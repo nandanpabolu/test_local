@@ -93,7 +93,7 @@ def process_question(question: str, vector_db: Chroma, selected_model: str) -> s
     Question: {question}
     If you don't know the answer, just say that you don't know, don't try to make up an answer.
     Only provide the answer from the {context}, nothing else.
-    Add snippets of the context you used to answer the question.
+    Add snippets of the context you used to answer the question. Make sure to rephrase the responses in a conversational manner. 
     """
 
     prompt = ChatPromptTemplate.from_template(template)
@@ -197,7 +197,7 @@ def main() -> None:
                             prompt, st.session_state["vector_db"], selected_model
                         )
                         st.session_state["messages"].append({"role": "assistant", "content": response})
-                        message_container.markdown(f"🤖: {response}")
+                        message_container.markdown(f"🌚: {response}")
                 else:
                     st.warning("Please upload a PDF file first.")
 
@@ -212,3 +212,5 @@ if __name__ == "__main__":
     print("nandan")
     print("running test")
     print("blue lagoon")
+    
+    
